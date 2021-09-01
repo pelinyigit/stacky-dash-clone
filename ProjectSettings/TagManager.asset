@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Dash
   - Normal
+  - Parent
   layers:
   - Default
   - TransparentFX

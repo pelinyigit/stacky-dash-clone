@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stack : MonoBehaviour
+public class StackController : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
@@ -13,7 +13,7 @@ public class Stack : MonoBehaviour
             other.gameObject.AddComponent<Rigidbody>();
             other.gameObject.GetComponent<Rigidbody>().useGravity = false;
             other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-            other.gameObject.AddComponent<Stack>();
+            other.gameObject.AddComponent<StackController>();
             Destroy(this);
         }
     }
