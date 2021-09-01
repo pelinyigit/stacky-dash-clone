@@ -47,7 +47,7 @@ public class InputController : MonoBehaviour
             float x = swipeDelta.x;
             float y = swipeDelta.y;
 
-            if (Mathf.Abs(x) < Mathf.Abs(y))
+            if (Mathf.Abs(x) > Mathf.Abs(y))
             {
                 if (x < 0)
                 {
