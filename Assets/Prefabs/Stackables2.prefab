@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3003931759703426835}
   - component: {fileID: 8140506986701357079}
   - component: {fileID: 5193468526371534229}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StackItem (1)
   m_TagString: Dash
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   - component: {fileID: 8341734652158632365}
   - component: {fileID: 5490129426671810606}
   - component: {fileID: 5351595409714829639}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StackItem
   m_TagString: Dash
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3142915246201104779}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Stackables2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 3336381518830085495}
   - component: {fileID: 1920035548223169683}
   - component: {fileID: 4636075969951204328}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: StackItem (2)
   m_TagString: Dash
   m_Icon: {fileID: 0}
