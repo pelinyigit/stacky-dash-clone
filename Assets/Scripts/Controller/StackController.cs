@@ -17,4 +17,5 @@ public class StackController : MonoBehaviour
             Destroy(this);
         }
     }
+    
 }

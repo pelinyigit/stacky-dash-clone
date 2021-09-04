@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerController : MonoBehaviour
     public float speed;
     public GameObject dashesParent;
     public GameObject prevDash;
+    public GameObject defaultCanvas; 
 
     private void Awake()
     {
@@ -25,25 +27,44 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    void Update()
+    private void OnEnable()
+    {
+        EventManager.onCollisionWall += WallCollision;
+    }
+
+    private void OnDisable()
+    {
+        EventManager.onCollisionWall -= WallCollision;
+    }
+
+    private void WallCollision()
+    {
+        rb.velocity = Vector3.zero;
+    }
+
+    void FixedUpdate()
     {
         if (InputController.Instance.swipeLeft && !isMoving)
         {
+            defaultCanvas.SetActive(false);
             isMoving = true;
             rb.velocity = Vector3.left * speed * Time.deltaTime;
         }
         else if (InputController.Instance.swipeRight && !isMoving)
         {
+            defaultCanvas.SetActive(false);
             isMoving = true;
             rb.velocity = Vector3.right * speed * Time.deltaTime;
         }
         else if (InputController.Instance.swipeUp && !isMoving)
         {
+            defaultCanvas.SetActive(false);
             isMoving = true;
             rb.velocity = Vector3.forward * speed * Time.deltaTime;
         }
         else if (InputController.Instance.swipeDown && !isMoving)
         {
+            defaultCanvas.SetActive(false);
             isMoving = true;
             rb.velocity = -Vector3.forward * speed * Time.deltaTime;
         }
