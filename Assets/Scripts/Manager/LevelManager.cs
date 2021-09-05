@@ -11,7 +11,6 @@ public class LevelManager : MonoBehaviour
 
     void Awake()
     {
-        StartCoroutine(LoadAsyncOperation());
         if (instance == null)
         {
             instance = this;
@@ -26,34 +25,10 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
 
-        //level = PlayerPrefs.GetInt("C_Level");
+        level = PlayerPrefs.GetInt("C_Level");
         Debug.Log(level);
     }
  
-    IEnumerator LoadAsyncOperation()
-    {
-        if (PlayerPrefs.GetInt("isFirst") == 0)
-        {
-            AsyncOperation gameLevel0 = SceneManager.LoadSceneAsync(1);
-            PlayerPrefs.SetInt("isFirst", 1);
-            PlayerPrefs.SetInt("C_Level", 1);
-
-            while (gameLevel0.progress < 1)
-            {
-                yield return new WaitForEndOfFrame();
-            }
-        }
-        else
-        {
-            AsyncOperation gameLevel = SceneManager.LoadSceneAsync(PlayerPrefs.GetInt("C_Level"));
-
-            while (gameLevel.progress < 1)
-            {
-                yield return new WaitForEndOfFrame();
-            }
-        }
-    }
-
     private void OnEnable()
     {
         EventManager.OnCurrentLevel.AddListener(GetLevel);
