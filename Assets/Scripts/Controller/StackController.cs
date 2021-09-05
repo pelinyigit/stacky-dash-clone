@@ -16,6 +16,17 @@ public class StackController : MonoBehaviour
             other.gameObject.AddComponent<StackController>();
             Destroy(this);
         }
+         else if (other.tag == "DropDash")
+        {
+            other.gameObject.tag = "Normal";
+            PlayerController.instance.DropDashes(other.gameObject);
+
+            other.gameObject.AddComponent<Rigidbody>();
+            other.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            other.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            other.gameObject.AddComponent<StackController>();
+            Debug.Log("item opened");
+        }
     }
     
 }

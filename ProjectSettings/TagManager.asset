@@ -9,6 +9,8 @@ TagManager:
   - Parent
   - wall
   - treasure
+  - DropDash
+  - Changed
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - UI
   - Wall
   - Collider
-  - 
+  - drop dash
   - 
   - 
   - 
