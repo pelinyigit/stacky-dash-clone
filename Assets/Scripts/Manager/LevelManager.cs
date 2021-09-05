@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         
-        PlayerPrefs.DeleteAll();
+       // PlayerPrefs.DeleteAll();
         level = PlayerPrefs.GetInt("C_Level");
         Debug.Log(level);
     }
