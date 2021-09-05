@@ -4,6 +4,7 @@ using UnityEditor;
 public class DashEditor : EditorWindow
 {
     float zValue;
+    float xValue;
     int count = 5;
     GameObject parent;
 
@@ -21,6 +22,8 @@ public class DashEditor : EditorWindow
 
         GUILayout.Label("Z Value", EditorStyles.boldLabel);
         zValue = EditorGUILayout.FloatField(zValue);
+        GUILayout.Label("X Value", EditorStyles.boldLabel);
+        xValue = EditorGUILayout.FloatField(xValue);
 
         parent = GameObject.FindGameObjectWithTag("Parent");
 
@@ -33,6 +36,7 @@ public class DashEditor : EditorWindow
                     GameObject g = Instantiate(obj);
                     Vector3 pos = obj.transform.position;
                     pos.z += zValue * (i + 1);
+                    pos.x += xValue * (i + 1);
                     g.transform.position = pos;
                     g.transform.SetParent(parent.transform);
                 }

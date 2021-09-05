@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public Text coinText;
+    public Text dashText;
     public Text rewardText;
     public ResourcesCoin resourcesCoin;
 
@@ -30,6 +31,7 @@ public class UIManager : MonoBehaviour
     private void UpdateResources()
     {
         coinText.text = resourcesCoin.coinAmount.ToString();
+        dashText.text = DashCounter.instance.collectedDash.ToString();
         rewardText.text = CoinCounter.instance.collectedCoin.ToString();
     }
 

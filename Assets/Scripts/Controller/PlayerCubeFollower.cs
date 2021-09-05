@@ -18,4 +18,12 @@ public class PlayerCubeFollower : MonoBehaviour
             EventManager.onCollisionWall.Invoke();
         } 
     }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "DropDash")
+        {
+            other.gameObject.GetComponent<MeshRenderer>().enabled = true;
+            EventManager.OnDashDropped.Invoke();
+        }
+    }
 }

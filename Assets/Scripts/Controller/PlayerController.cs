@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody rb;
     private bool isMoving = false;
-
+    int childSize = 0;
     public static PlayerController instance;
     public float speed;
     public GameObject dashesParent;
@@ -31,11 +31,13 @@ public class PlayerController : MonoBehaviour
     private void OnEnable()
     {
         EventManager.onCollisionWall += WallCollision;
+        EventManager.OnDashDropped.AddListener(DropDashes);
     }
 
     private void OnDisable()
     {
         EventManager.onCollisionWall -= WallCollision;
+        EventManager.OnDashDropped.RemoveListener(DropDashes);
     }
 
     private void WallCollision()
@@ -106,16 +108,26 @@ public class PlayerController : MonoBehaviour
         prevDash.GetComponent<BoxCollider>().isTrigger = false;
     }
 
-    public void DropDashes(GameObject dropDash)
+    public void DropDashes()
     {
-        prevDash.transform.SetParent(dropDashesParent.transform);
-        Vector3 pos = dropDash.transform.position;
-        prevDash.transform.position = pos;
+       
+
+        for (int i = 0; i < dashesParent.transform.childCount; i++)
+        {
+            childSize = i;
+        }
+
+        Debug.Log(childSize);
+        Destroy(dashesParent.transform.GetChild(childSize).gameObject);
+        
+        
 
         Vector3 characterPosition = transform.position;
         characterPosition.y -= 0.047f;
         transform.position = characterPosition;
 
-      //  prevDash.GetComponent<BoxCollider>().isTrigger = true;
+
+
+       // prevDash.GetComponent<BoxCollider>().isTrigger = true;
     }
 }

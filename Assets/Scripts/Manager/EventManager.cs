@@ -16,4 +16,7 @@ public class EventManager : MonoBehaviour
     public static UnityEvent OnGamePaused = new UnityEvent();
 
     public static UnityEvent OnCoinCollected = new UnityEvent();
+    public static UnityEvent OnDashCollected = new UnityEvent();
+    public static UnityEvent OnDashRemoved = new UnityEvent();
+    public static UnityEvent OnDashDropped = new UnityEvent();
 }
