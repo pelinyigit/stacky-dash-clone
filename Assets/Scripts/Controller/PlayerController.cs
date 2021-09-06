@@ -92,6 +92,17 @@ public class PlayerController : MonoBehaviour
         }
             
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Bouncer")
+        {
+            speed = rb.velocity.magnitude;
+            var direction = Vector3.Reflect(rb.velocity.normalized, collision.contacts[0].normal);
+
+            rb.velocity = direction * Mathf.Max(speed, 0f);
+        }
+    }
+
 
     public void TakeDashes(GameObject dash)
     {

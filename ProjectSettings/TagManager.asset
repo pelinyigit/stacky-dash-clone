@@ -11,6 +11,7 @@ TagManager:
   - treasure
   - DropDash
   - Changed
+  - Bouncer
   layers:
   - Default
   - TransparentFX
@@ -21,7 +22,7 @@ TagManager:
   - Wall
   - Collider
   - drop dash
-  - 
+  - bouncer
   - 
   - 
   - 
